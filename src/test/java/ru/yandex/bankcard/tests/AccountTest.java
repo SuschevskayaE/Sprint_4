@@ -29,13 +29,21 @@ public class AccountTest {
                 {"тимоти шаламе", true},
                 {" Тимоти Шаламе ", false},
                 {"Тимоти22 Шаламе22", false},
+                {"Т Ш", true},
+                {"ТШ", false},
+                {null, false},
         };
     }
 
     @Test
     @DisplayName("Проверка метода checkNameToEmboss()")
     public void checkNameToEmbossSuccess(){
-        Account account = new Account(name);
-        Assert.assertEquals(name +": не прошел проверку", isCorrectName, account.checkNameToEmboss());
+        try{
+            Account account = new Account(name);
+            Assert.assertEquals(name +": не прошел проверку", isCorrectName, account.checkNameToEmboss());
+        }catch (Exception exception){
+            assert exception instanceof NullPointerException;
+        }
+
     }
 }

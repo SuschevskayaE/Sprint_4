@@ -4,11 +4,11 @@ public class Account {
 
     private final String name;
 
-    public Account(String name) {
+    public Account(String name){
         this.name = name;
     }
 
-    public boolean checkNameToEmboss() {
+    public boolean checkNameToEmboss() throws Exception{
         return name.matches("^(?=.{3,19}$)([а-яА-ЯёЁ]+ [а-яА-ЯёЁ]+)$");
     }
 
